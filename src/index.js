@@ -5,9 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const tg = window.Telegram.WebApp;
+tg.expand();
+tg.enableClosingConfirmation();
+
+const searchParams = new URLSearchParams(window.location.search)
+const scheduleJSON = searchParams.get("schedule")?.toString() || "{}";
+const locale = searchParams.get("locale") || "en";
+
+const schedule = JSON.parse(scheduleJSON);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App tg={tg} sourceSchedule={schedule} locale={locale}/>
   </React.StrictMode>
 );
 
