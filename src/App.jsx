@@ -9,7 +9,7 @@ import dayjs from 'dayjs';
 import { messages } from './messages';
 
 
-const App = ({tg, sourceSchedule, locale}) => {
+const App = ({tg, sourceSchedule, locale, bot_id}) => {
     messages.setLanguage(locale);
     tg.MainButton.setText(messages.save);
     tg.MainButton.show();
@@ -20,7 +20,11 @@ const App = ({tg, sourceSchedule, locale}) => {
 
     useEffect(() => {
         if (send) {
-            tg.sendData(JSON.stringify(schedule))
+            tg.sendData(JSON.stringify({
+                schedule,
+                bot_id,
+                'route': 'schedule'
+            }))
         };
     }, [send, schedule, tg])
 
@@ -70,6 +74,7 @@ const App = ({tg, sourceSchedule, locale}) => {
             format={format}
             minuteStep={15}
             bordered={true}
+            changeOnBlur={true}
             placeholder={[messages.startTime, messages.endTime]}
             defaultValue={range.from ? [dayjs(range.from, format), dayjs(range.to, format)] : null}
             disabledTime={getDisabledTime}

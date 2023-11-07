@@ -12,12 +12,13 @@ tg.enableClosingConfirmation();
 const searchParams = new URLSearchParams(window.location.search)
 const scheduleJSON = searchParams.get("schedule")?.toString() || "{}";
 const locale = searchParams.get("locale") || "en";
+const bot_id = searchParams.get("bot_id")
 
 const schedule = JSON.parse(scheduleJSON);
 
 root.render(
   <React.StrictMode>
-    <App tg={tg} sourceSchedule={schedule} locale={locale}/>
+    <App tg={tg} sourceSchedule={schedule} locale={locale} bot_id={bot_id}/>
   </React.StrictMode>
 );
 
