@@ -1,6 +1,6 @@
 import { TimePicker } from 'antd';
 import { Divider } from 'antd';
-import { Button, Flex, Tooltip } from 'antd';
+import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import './App.css';
 import { useEffect, useState } from 'react';
@@ -22,7 +22,7 @@ const App = ({tg, sourceSchedule, locale}) => {
         if (send) {
             tg.sendData(JSON.stringify(schedule))
         };
-    }, [send, schedule])
+    }, [send, schedule, tg])
 
     tg.MainButton.onClick(() => {
         tg.HapticFeedback.impactOccurred("medium");
@@ -49,8 +49,6 @@ const App = ({tg, sourceSchedule, locale}) => {
 
         const getDisabledTime = () => {
             let disabledHours = [];
-            let disabledMinutes = [];
-            let disabledSeconds = [];
             let previousTo = null;
 
 
