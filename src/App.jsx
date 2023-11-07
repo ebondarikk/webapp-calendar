@@ -26,7 +26,7 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
                 'route': 'schedule'
             }))
         };
-    }, [send, schedule, tg])
+    }, [send, schedule, tg, bot_id])
 
     tg.MainButton.onClick(() => {
         tg.HapticFeedback.impactOccurred("medium");
