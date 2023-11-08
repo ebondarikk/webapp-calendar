@@ -2,12 +2,15 @@
   text-transform: capitalize;
   color: var(--tg-theme-text-color) !important; 
   border-color: var(--tg-theme-text-color) !important;
+  font-weight: bold !important;
 }
 
 .addBtn {
   background-color: var(--tg-theme-button-color) !important;
   border: 0px;
   margin: 0.5rem;
+  max-width: 73%;
+  height: 35px;
 }
 
 .picker .ant-picker-range-separator span span {
@@ -77,6 +80,7 @@ li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
   margin: 0.5rem;
   background-color: var(--tg-theme-bg-color) !important;
   border-color: var(--tg-theme-text-color) !important;
+  text-align-last: center;
 }
 
 .clearBtn {
@@ -95,6 +99,11 @@ li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
 .clearBtnHover {
   color: var(--tg-theme-text-color) !important;
   background-color: var(--tg-theme-bg-color) !important;
+}
+
+.fullWidth {
+  min-width: 90%;
+  margin: 0 1rem;
 }
 
 .picker input {

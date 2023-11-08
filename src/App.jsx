@@ -52,8 +52,8 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
     console.log(schedule)
     const format = 'HH:mm';
    return days.map(day => (
-    <div key={day}>
-    <Divider className={`divider ${['saturday', 'sunday'].includes(day) ? 'weekday': ''}`} orientation="left" plain>{messages[day]}</Divider>
+    <div key={day} className="fullWidth">
+    <Divider className={`divider ${['saturday', 'sunday'].includes(day) ? 'weekday': ''}`} orientation="center" plain>{messages[day]}</Divider>
     <div className='schedule'>
     {(schedule[day] || []).map(range => {
         let index = schedule[day].indexOf(range)
