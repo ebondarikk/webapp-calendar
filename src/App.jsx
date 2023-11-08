@@ -1,7 +1,5 @@
-import { TimePicker } from 'antd';
-import { Divider } from 'antd';
-import { Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { TimePicker, Divider, Button } from 'antd';
+import { PlusOutlined, CloseCircleFilled } from '@ant-design/icons';
 import './App.css';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
@@ -48,6 +46,7 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
    return days.map(day => (
     <div key={day}>
     <Divider className={`divider ${['saturday', 'sunday'].includes(day) ? 'weekday': ''}`} orientation="left" plain>{messages[day]}</Divider>
+    <div className='schedule'>
     {schedule[day].map(range => {
         let index = schedule[day].indexOf(range)
 
@@ -74,7 +73,11 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
             format={format}
             minuteStep={15}
             inputReadOnly
+            size='large'
+            allowClear={index + 1 === schedule[day].length ? {clearIcon: <CloseCircleFilled  className='clearBtnHover'/>} : false}
             bordered={true}
+            suffixIcon={index + 1 === schedule[day].length ? <CloseCircleFilled  className='clearBtn'/> : <CloseCircleFilled  className='clearBtnHidden'/>}
+
             changeOnBlur={true}
             placeholder={[messages.startTime, messages.endTime]}
             defaultValue={range.from ? [dayjs(range.from, format), dayjs(range.to, format)] : null}
@@ -94,18 +97,19 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
             }
             />
         )})}
-    {(schedule[day].length < 4 && (schedule[day].length === 0 || !!schedule[day][schedule[day].length - 1]) && schedule[day][schedule[day].length - 1]?.to !== '23:59') && <Button 
+    {schedule[day].length < 4 && <Button 
         className='addBtn' 
         type="default" 
+        disabled={!((schedule[day].length === 0 || !!schedule[day][schedule[day].length - 1]) && schedule[day][schedule[day].length - 1]?.to !== '23:59')}
         icon={<PlusOutlined />} 
-        size={'medium'} 
+        block
         onClick={() => {
             setSchedule({
                 ...schedule,
                 [day]: [
                     ...schedule[day],
                     {
-                        from: schedule[day][schedule[day].length - 1]?.to,
+                        from: schedule[day][schedule[day].length - 1]?.to || "00:00",
                         to: '23:59'
                     }
                 ]
@@ -113,6 +117,8 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
         }} />
     }
     </div>
+        </div>
+
    ))
 
 }

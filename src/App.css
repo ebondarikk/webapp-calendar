@@ -1,20 +1,67 @@
 .divider {
   text-transform: capitalize;
-  color: var(--tg-theme-text-color) !important;
+  color: var(--tg-theme-text-color) !important; 
   border-color: var(--tg-theme-text-color) !important;
 }
 
 .addBtn {
-  margin-left: 0.5rem;
+  background-color: var(--tg-theme-button-color) !important;
+  border: 0px;
+  margin: 0.5rem;
+}
+
+.picker .ant-picker-range-separator span span {
+  color: var(--tg-theme-text-color) !important;
+}
+
+.ant-picker-active-bar {
+  background: var(--tg-theme-button-color) !important;
+}
+
+.addBtn:disabled {
+  opacity: 60% !important;
+}
+
+.addBtn:hover:not(:disabled) {
+  color: var(--tg-theme-text-color) !important;
 }
 
 .picker {
   margin: 0.5rem;
-  background-color: var(--tg-theme-text-color) !important;
+  background-color: var(--tg-theme-bg-color) !important;
   border-color: var(--tg-theme-text-color) !important;
+}
+
+.clearBtn {
+  color: var(--tg-theme-text-color) !important;
+}
+
+.clearBtnHidden {
+  color: var(--tg-theme-bg-color) !important;
+  background-color: var(--tg-theme-bg-color) !important;
+}
+
+.clearBtn:disabled {
+  opacity: 60% !important;
+}
+
+.clearBtnHover {
+  color: var(--tg-theme-text-color) !important;
+  background-color: var(--tg-theme-bg-color) !important;
+}
+
+.picker input {
+  color: var(--tg-theme-text-color) !important;
+
 }
 
 .weekday {
   color: lightcoral !important;
   border-color: lightcoral !important;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
