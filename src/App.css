@@ -22,6 +22,53 @@
   opacity: 60% !important;
 }
 
+.ant-picker-time-panel {
+  background-color: black;
+  color: white !important;
+}
+
+.ant-picker-panel-container {
+  background: none !important;
+  border: 1px solid var(--tg-theme-button-color);
+}
+
+.ant-picker-time-panel-cell-inner {
+  color: var(--tg-theme-text-color) !important;
+
+}
+
+li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+  background: var(--tg-theme-button-color) !important;
+  
+}
+
+li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
+  border: 1px solid var(--tg-theme-button-color) !important;
+}
+
+.ant-picker-time-panel-column {
+  margin: .5rem !important;
+  margin-right: 1rem !important;
+  overflow-y: visible !important;
+}
+
+.ant-picker-time-panel-column::after {
+  height: auto  !important;
+}
+
+
+.ant-picker-ranges {
+  display: none !important;
+}
+
+.ant-picker-range-arrow::before {
+  background: var(--tg-theme-button-color) !important;
+}
+
+.ant-picker-footer {
+  display: none !important;
+}
+
 .addBtn:hover:not(:disabled) {
   color: var(--tg-theme-text-color) !important;
 }

@@ -74,6 +74,7 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
             minuteStep={15}
             inputReadOnly
             size='large'
+            popupClassName='popup'
             allowClear={index + 1 === schedule[day].length ? {clearIcon: <CloseCircleFilled  className='clearBtnHover'/>} : false}
             bordered={true}
             suffixIcon={index + 1 === schedule[day].length ? <CloseCircleFilled  className='clearBtn'/> : <CloseCircleFilled  className='clearBtnHidden'/>}
