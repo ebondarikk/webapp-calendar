@@ -55,7 +55,7 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
     <div key={day}>
     <Divider className={`divider ${['saturday', 'sunday'].includes(day) ? 'weekday': ''}`} orientation="left" plain>{messages[day]}</Divider>
     <div className='schedule'>
-    {schedule[day].map(range => {
+    {(schedule[day] || []).map(range => {
         let index = schedule[day].indexOf(range)
 
         const getDisabledTime = () => {
