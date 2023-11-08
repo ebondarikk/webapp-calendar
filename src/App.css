@@ -51,6 +51,14 @@ li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
   border: 1px solid var(--tg-theme-button-color) !important;
 }
 
+li.ant-picker-time-panel-cell-disabled .ant-picker-time-panel-cell-inner {
+  opacity: 50%;
+}
+
+li.ant-picker-time-panel-cell-disabled .ant-picker-time-panel-cell-inner:hover {
+  border: none !important;
+}
+
 .ant-picker-time-panel-column {
   margin: .5rem !important;
   margin-right: 1rem !important;
