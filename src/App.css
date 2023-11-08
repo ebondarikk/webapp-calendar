@@ -28,8 +28,8 @@
 }
 
 .ant-picker-time-panel {
-  background-color: black;
-  color: white !important;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color) !important;
 }
 
 .ant-picker-panel-container {
@@ -83,7 +83,7 @@ li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
   border-radius: 0;
   background-color: var(--tg-theme-bg-color) !important;
   border-color: var(--tg-theme-text-color) !important;
-  text-align-last: center;
+  /* text-align-last: center; */
 }
 
 .picker:first-child {
@@ -96,7 +96,6 @@ li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
   border-bottom-right-radius: 6px;
 }
 
-.picker:fi
 
 .clearBtn {
   color: var(--tg-theme-text-color) !important;
