@@ -16,10 +16,28 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
 
     const [send, setSend] = useState(false);
 
+    const days = [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday'
+    ]
+
     useEffect(() => {
         if (send) {
             tg.sendData(JSON.stringify({
-                schedule,
+                schedule: {
+                    monday: schedule.monday || [],
+                    tuesday: schedule.tuesday || [],
+                    wednesday: schedule.wednesday || [],
+                    thursday: schedule.thursday || [],
+                    friday: schedule.friday || [],
+                    saturday: schedule.saturday || [],
+                    sunday: schedule.sunday || [],
+                },
                 bot_id,
                 'route': 'schedule'
             }))
@@ -30,16 +48,6 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
         tg.HapticFeedback.impactOccurred("medium");
         setSend(true);
       });
-
-    const days = [
-        'monday',
-        'tuesday',
-        'wednesday',
-        'thursday',
-        'friday',
-        'saturday',
-        'sunday'
-    ]
 
     console.log(schedule)
     const format = 'HH:mm';
