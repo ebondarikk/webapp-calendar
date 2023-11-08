@@ -12,7 +12,15 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
     tg.MainButton.setText(messages.save);
     tg.MainButton.show();
 
-    const [schedule, setSchedule] = useState(sourceSchedule);
+    const [schedule, setSchedule] = useState({
+        monday: sourceSchedule.monday || [],
+        tuesday: sourceSchedule.tuesday || [],
+        wednesday: sourceSchedule.wednesday || [],
+        thursday: sourceSchedule.thursday || [],
+        friday: sourceSchedule.friday || [],
+        saturday: sourceSchedule.saturday || [],
+        sunday: sourceSchedule.sunday || [],
+    });
 
     const [send, setSend] = useState(false);
 
@@ -29,15 +37,7 @@ const App = ({tg, sourceSchedule, locale, bot_id}) => {
     useEffect(() => {
         if (send) {
             tg.sendData(JSON.stringify({
-                schedule: {
-                    monday: schedule.monday || [],
-                    tuesday: schedule.tuesday || [],
-                    wednesday: schedule.wednesday || [],
-                    thursday: schedule.thursday || [],
-                    friday: schedule.friday || [],
-                    saturday: schedule.saturday || [],
-                    sunday: schedule.sunday || [],
-                },
+                schedule,
                 bot_id,
                 'route': 'schedule'
             }))
